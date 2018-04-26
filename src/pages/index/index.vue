@@ -8,7 +8,7 @@
         <weather></weather>
       </div>
       <div class="toolList">
-
+        <card :toolList="toolList"></card>
       </div>
     </div>
   </div>
@@ -16,15 +16,41 @@
 
 <script>
 import weather from 'components/weather'
+import card from 'components/card'
 export default {
   data () {
     return {
-
+      toolList: [{
+        name: '小猿音乐',
+        url: '/pages/music/main',
+        iconClass: 'icon-yinle'
+      }, {
+        name: '小猿电影',
+        url: '/pages/movie/main',
+        iconClass: 'icon-dianying'
+      }, {
+        name: '天气预报',
+        url: '/pages/weather/main',
+        iconClass: 'icon-tianqi'
+      }, {
+        name: '知乎资讯',
+        url: '/pages/news/main',
+        iconClass: 'icon-zhihu'
+      }, {
+        name: 'github ranking',
+        url: '/pages/github/main',
+        iconClass: 'icon-github'
+      }, {
+        name: '地图服务',
+        url: '/pages/map/main',
+        iconClass: 'icon-ditu'
+      }]
     }
   },
 
   components: {
-    weather
+    weather,
+    card
   },
 
   methods: {
@@ -65,8 +91,10 @@ export default {
       background-color: $bgcolor;
     }
     .toolList {
+      display: flex;
+      justify-content: center;
       width: 1000px;
-      min-height: 450px;
+      // min-height: 450px;
       border-top-left-radius: 50%;
       border-top-right-radius: 50%;
       margin-top: -20px;
