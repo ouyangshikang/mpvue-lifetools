@@ -17,6 +17,8 @@
 <script>
 import weather from 'components/weather'
 import card from 'components/card'
+import { requestWeatherData } from '@/api/weather.js'
+
 export default {
   data () {
     return {
@@ -44,7 +46,8 @@ export default {
         name: '地图服务',
         url: '/pages/map/main',
         iconClass: 'icon-ditu'
-      }]
+      }],
+      weather: {}
     }
   },
 
@@ -54,10 +57,16 @@ export default {
   },
 
   methods: {
-
+    getWeatherData () {
+      requestWeatherData(res => {
+        console.log('res', res)
+        this.weather = res
+      })
+    }
   },
 
   created () {
+    this.getWeatherData()
   }
 }
 </script>
@@ -93,7 +102,7 @@ export default {
     .toolList {
       display: flex;
       justify-content: center;
-      width: 1000px;
+      width: 800px;
       // min-height: 450px;
       border-top-left-radius: 50%;
       border-top-right-radius: 50%;
