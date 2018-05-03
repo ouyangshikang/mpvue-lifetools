@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <header>
-      <span>厦门市</span>
+      <span>{{weathers.location}}</span>
     </header>
     <div class="container-box">
       <div class="weather-info">
-        <weather></weather>
+        <weather :weatherData="weathers"></weather>
       </div>
       <div class="toolList">
         <card :toolList="toolList"></card>
@@ -17,7 +17,7 @@
 <script>
 import weather from 'components/weather'
 import card from 'components/card'
-import { requestWeatherData } from '@/api/weather.js'
+import api from '@/api/weather.js'
 
 export default {
   data () {
@@ -47,7 +47,7 @@ export default {
         url: '/pages/map/main',
         iconClass: 'icon-ditu'
       }],
-      weather: {}
+      weathers: {}
     }
   },
 
@@ -58,14 +58,60 @@ export default {
 
   methods: {
     getWeatherData () {
-      requestWeatherData(res => {
-        console.log('res', res)
-        this.weather = res
+      let that = this
+      wx.getLocation({
+        type: 'wgs84', // 默认为 wgs84 返回 gps 坐标
+        success: function (res) {
+          console.log(res)
+          api.getWeatherData(res.longitude, res.latitude).then(re => {
+            let weatherData = that.pareseWeahterData(re)
+            that.weathers = weatherData
+            console.log('weatherData', that.weathers)
+          })
+          api.getAirData(res.longitude, res.latitude).then(re => {
+            let air = {
+              pm25: re.data.HeWeather6[0].air_now_city.pm25
+            }
+            Object.assign(that.weathers, air)
+          })
+        },
+        fail: function (res) {
+          console.log(res.msg || res.err)
+        }
       })
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+    },
+    /**
+     * 解析天气预报数据
+     */
+    pareseWeahterData (orignData) {
+      let data = orignData.data.HeWeather6[0]
+      let weather = {
+        basic: data.basic, // 基础信心
+        now: data.now, // 实况天气
+        update: data.update, // 接口更新时间
+        daily_forecast: data.daily_forecast, // 天气预报
+        hourly: data.hourly, // 逐小时预报
+        lifestyle: data.lifestyle, // 生活指数
+        location: data.basic.location, // 定位城市
+        tmp: data.now.tmp, // 实时温度
+        tmp_max: data.daily_forecast[0].tmp_max, // 最高温度
+        tmp_min: data.daily_forecast[0].tmp_min, // 最低温度
+        wind_dir: data.daily_forecast[0].wind_dir, // 风向
+        wind_sc: data.daily_forecast[0].wind_sc, // 风力
+        cond_txt: data.now.cond_txt // 实况天气
+      }
+      return weather
     }
   },
 
   created () {
+    this.getWeatherData()
+  },
+  onPullDownRefresh () {
+    console.log('下拉刷新了')
+    wx.showNavigationBarLoading()
     this.getWeatherData()
   }
 }

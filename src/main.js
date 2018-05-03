@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import App from './App'
+import store from './store'
 
 Vue.config.productionTip = false
 App.mpType = 'app'
+
+Vue.prototype.$store = store
 
 const app = new Vue(App)
 app.$mount()
@@ -22,14 +25,14 @@ export default {
     ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#2b569a',
+      navigationBarBackgroundColor: '#5b33ac',
       navigationBarTitleText: '猿生活',
       navigationBarTextStyle: 'white'
     },
     tabBar: {
       color: '#000000',
-      selectedColor: '#405f80',
-      backgroundColor: '##f0f4fb',
+      selectedColor: '#5b33ac',
+      backgroundColor: '#f0f4fb',
       borderStyle: 'black',
       position: 'bottom',
       list: [{
@@ -44,6 +47,12 @@ export default {
         iconPath: '/static/img/contact.png',
         selectedIconPath: '/static/img/contact2.png'
       }]
+    },
+    networkTimeout: {
+      request: 5000,
+      connectSocket: 20000,
+      uploadFile: 20000,
+      downloadFile: 20000
     }
   }
 }
