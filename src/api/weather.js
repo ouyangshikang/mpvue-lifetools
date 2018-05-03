@@ -1,6 +1,5 @@
 import request from '../utils/http'
 const baseUrl1 = 'https://free-api.heweather.com/s6/weather?key=19713447578c4afe8c12a351d46ea922'
-// const baseUrl = 'https://free-api.heweather.com/s6/weather/?key=a33cc4b1e5894d958ab154a0dcf836ae'
 const baseUrl2 = 'https://free-api.heweather.com/s6/air?key=19713447578c4afe8c12a351d46ea922'
 const api = {
   /**
