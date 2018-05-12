@@ -70,6 +70,9 @@ export default {
 	.items {
 		height: 35px;
 		line-height: 35px;
+    span {
+      padding: 0 3px;
+    }
 	}
 	&-temperature {
 		height: 35px;
