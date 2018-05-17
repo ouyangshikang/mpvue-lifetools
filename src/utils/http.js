@@ -2,14 +2,14 @@
 // var Fly = require('flyio/dist/npm/wx')
 import Fly from 'flyio/dist/npm/wx'
 
-const request = new Fly()
+const http = new Fly()
 
-request.interceptors.request.use((request) => {
+http.interceptors.request.use((request) => {
   wx.showNavigationBarLoading()
   return request
 })
 
-request.interceptors.response.use(
+http.interceptors.response.use(
     (response, promise) => {
       wx.hideNavigationBarLoading()
       return promise.resolve(response)
@@ -24,4 +24,4 @@ request.interceptors.response.use(
     }
   )
 
-export default request
+export default http
