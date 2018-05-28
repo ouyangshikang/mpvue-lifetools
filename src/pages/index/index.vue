@@ -17,7 +17,7 @@
 <script>
 import weather from 'components/weather'
 import card from 'components/card'
-import api from '@/api/weather.js'
+import api from '@/api/index.js'
 
 export default {
   data () {

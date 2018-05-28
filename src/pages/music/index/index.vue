@@ -33,16 +33,18 @@
 			duration="400"
 			@change="bindChange"
 		>  
-			<swiper-item>  
+			<swiper-item class="swiper-item">  
 				<div>我的</div>  
 			</swiper-item>  
-			<swiper-item>  
-				<div>
-					<slider></slider>
-					<type></type>
-				</div>
+			<swiper-item class="swiper-item">  
+				<!-- 轮播图 -->
+				<slider></slider>
+				<!-- 分类导航栏 -->
+				<type></type>
+				<!-- 推荐歌单列表 -->
+				<recommend></recommend>
 			</swiper-item>  
-			<swiper-item>  
+			<swiper-item class="swiper-item">  
 				<div>发现</div>  
 			</swiper-item>  
 		</swiper>  
@@ -52,6 +54,7 @@
 <script>
 import slider from 'components/music/slider/slider'
 import type from 'components/music/slider/type'
+import recommend from 'components/music/recommend/recommend'
 export default {
   data () {
     return {
@@ -70,7 +73,8 @@ export default {
   },
   components: {
     slider,
-    type
+    type,
+    recommend
   }
 }
 </script>
@@ -105,8 +109,9 @@ export default {
 		display: block;
 		width: 100%;
 		height: calc(100vh - 47px);
-		overflow: hidden;
-		& > div {
+		.swiper-item {
+			overflow-x: hidden;
+			overflow-y: scroll;
 			text-align: center;
 			color: #000000;
 		}

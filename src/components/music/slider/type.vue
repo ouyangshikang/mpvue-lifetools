@@ -58,8 +58,8 @@ export default {
   margin:-4px auto 0;
   box-shadow: 0 3px 5px 1px #efefef;
   width:360px;
-  height:150rpx;
-  z-index:99999;
+  height:70px;
+  z-index:9;
   background:#ffffff;
   border-radius: 3px 3px 0 0;
 	ul {
@@ -74,7 +74,7 @@ export default {
       }
       span {
         font-size: $normalSize;
-        color: #666666;
+        color: #000000;
       }
     }
   }
