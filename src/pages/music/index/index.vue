@@ -37,7 +37,10 @@
 				<div>我的</div>  
 			</swiper-item>  
 			<swiper-item>  
-				<div>音乐馆</div>  
+				<div>
+					<slider></slider>
+					<type></type>
+				</div>
 			</swiper-item>  
 			<swiper-item>  
 				<div>发现</div>  
@@ -47,6 +50,8 @@
 </template>
 
 <script>
+import slider from 'components/music/slider/slider'
+import type from 'components/music/slider/type'
 export default {
   data () {
     return {
@@ -62,6 +67,10 @@ export default {
       // console.log('点击tab', e)
       this.currentTab = e.target.dataset.current
     }
+  },
+  components: {
+    slider,
+    type
   }
 }
 </script>
@@ -94,7 +103,8 @@ export default {
 	}  
 	.swiper-box {
 		display: block;
-		width: 100%; 
+		width: 100%;
+		height: calc(100vh - 47px);
 		overflow: hidden;
 		& > div {
 			text-align: center;

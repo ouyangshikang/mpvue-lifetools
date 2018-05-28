@@ -24,7 +24,7 @@ export default {
     return {
       toolList: [{
         name: '小猿音乐',
-        url: '/pages/music/main',
+        url: '/pages/music/index/main',
         iconClass: 'icon-yinle'
       }, {
         name: '小猿电影',

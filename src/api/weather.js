@@ -17,7 +17,7 @@ const api = {
   getAirData (longitude, latitude) {
     return http.get(`${baseUrl}air`, {
       location: `${longitude},${latitude}`,
-      key: 'a33cc4b1e5894d958ab154a0dcf836ae'
+      key: '19713447578c4afe8c12a351d46ea922'
     })
   }
 }
