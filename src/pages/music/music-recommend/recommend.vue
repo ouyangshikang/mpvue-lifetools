@@ -1,10 +1,11 @@
 <template>
 	<div>
-        音乐推荐页面
+    <recommend></recommend>
 	</div>
 </template>
 
 <script>
+import recommend from 'components/music/recommend/recommend'
 export default {
   data () {
     return {
@@ -13,6 +14,9 @@ export default {
   },
   methods: {
 
+  },
+  components: {
+    recommend
   }
 }
 </script>
