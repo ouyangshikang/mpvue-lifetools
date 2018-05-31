@@ -1,5 +1,6 @@
 import api from '@/api/index'
 import {ERR_OK} from '@/api/config'
+import { Base64 } from 'js-base64'
 
 // 歌曲类
 export default class Song {
@@ -14,11 +15,18 @@ export default class Song {
     this.url = url // 歌曲地址
   }
   getLyric () {
-    api.getLyric(this.mid).then(res => {
-      if (res.data.code === ERR_OK) {
-        this.lyric = res.data.lyric
-        console.log(this.lyric)
-      }
+    if (this.lyric) {
+      return Promise.resolve(this.lyric)
+    }
+    return new Promise((resolve, reject) => {
+      api.getLyric(this.mid).then(res => {
+        if (res.data.code === ERR_OK) {
+          this.lyric = Base64.decode(res.data.lyric)
+          resolve(this.lyric)
+        } else {
+          reject('no lyric')
+        }
+      })
     })
   }
 }

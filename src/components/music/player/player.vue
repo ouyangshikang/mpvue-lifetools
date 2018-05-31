@@ -9,29 +9,39 @@
 				<h1 class="title">{{currentSong.name}}</h1>
 				<h2 class="subtitle">{{currentSong.singer}}</h2>
 			</div>
-			<!-- 中间唱片区 -->
-			<div class="middle">
-				<div class="middle-l">
+			<!-- 中间滚动区域 -->
+			<swiper
+				indicator-dots="true"
+				indicator-color="rgba(255, 255, 255, 0.5)"
+				indicator-active-color="#ffffff"
+				class="middle"
+			> 
+			  <!-- 唱片区域 -->
+				<swiper-item class="middle-l">
 					<div class="cd-wrapper">
 						<div class="cd" :class="cdRotate">
 							<img class="image" :src="currentSong.image">
 						</div>
 					</div>
-					<!-- <div class="playing-lyric-wrapper">
-						<div class="playing-lyric"></div>
-					</div> -->
-				</div>
-				<!-- <scroll class="middle-r" ref="lyricList" :data="currentLyric && currentLyric.lines">
-					<div class="lyric-wrapper">
-						<div v-if="currentLyric">
-							<p ref="lyricLine"
-									class="text"
-									:class="{'current': currentLineNum ===index}"
-									v-for="(line,index) in currentLyric.lines">{{line.txt}}</p>
+				</swiper-item>
+				<!-- 歌词区域 -->
+				<swiper-item class="middle-r">
+					<scroll-view
+						scroll-y="true"
+						:scroll-top="scrollTop"
+						class="lyric-wrapper">
+						<div>
+							<p
+								class="text"
+								:class="{'current': currentLineNum === index}"
+								v-for="(line,index) in currentLyric.lines"
+								:key="index"
+							>{{line.txt}}</p>
 						</div>
-					</div>
-				</scroll> -->
-			</div>
+					</scroll-view>
+				</swiper-item>
+  		</swiper>
+			
 			<!-- 顶部操作区域 -->
 			<div class="bottom">
 				<!-- <div class="dot-wrapper">
@@ -116,13 +126,17 @@
 <script>
 import {mapGetters, mapMutations} from 'vuex'
 import {shuffle} from '../../../utils/util.js'
+import Lyric from 'lyric-parser'
 const innerAudioContext = wx.createInnerAudioContext()
 // const backgroundAudioManager = wx.getBackgroundAudioManager()
 
 export default {
   data () {
     return {
-      currentTime: 0
+      currentTime: 0,
+      currentLyric: {},
+      currentLineNum: 0, // 当前歌词所在的行
+      scrollTop: 0
     }
   },
   methods: {
@@ -143,12 +157,36 @@ export default {
       innerAudioContext.src = this.currentSong.url
       innerAudioContext.play()
       console.log(this.currentSong.url)
-      this.currentSong.getLyric()
+      this.getLyrics()
+    },
+    getLyrics () {
+      var that = this
+      this.currentSong.getLyric().then(res => {
+// console.log('歌词', res)
+        // const lys = new Lyric(res)
+        that.currentLyric = new Lyric(res, that.handleLyric)
+        if (that.playing) {
+          that.currentLyric.play()
+        }
+        console.log('歌词在这', this.currentLyric)
+      })
+    },
+    handleLyric ({lineNum, txt}) {
+      this.currentLineNum = lineNum
+      // this.scrollTop = this.scrollTop + 50
+      if (lineNum > 4) {
+        this.scrollTop = 32 * (lineNum - 4)
+      } else {
+        this.scrollTop = 0
+      }
     },
     togglePlaying () { // 播放切换
       console.log(this.playing)
       this.playing ? innerAudioContext.pause() : innerAudioContext.play()
       this.setPlayingState(!this.playing)
+      if (this.currentLyric) {
+        this.currentLyric.togglePlay()
+      }
     },
     next () { // 切换下一首歌
       let index = this.currentIndex + 1
@@ -174,6 +212,9 @@ export default {
 // innerAudioContext.loop = true
       this.currentTime = 0
       innerAudioContext.play()
+      if (this.currentLyric) {
+        this.currentLyric.seek(0)
+      }
     },
     formatTime (interval) { // 格式化时间
       interval = interval | 0 // 向上取整
@@ -193,9 +234,9 @@ export default {
       console.log('拖到:', e.mp.detail.value)
       let position = e.mp.detail.value
       innerAudioContext.seek(position)
-    },
-    touchmove (e) {
-      console.log('拖动:', e.mp.detail.value)
+      if (this.currentLyric.lines) {
+        this.currentLyric.seek(position * 1000)
+      }
     },
     changeMode () {
       const mode = (this.mode + 1) % 3
@@ -251,11 +292,12 @@ export default {
       if (newSong.id === oldSong.id) {
         return
       }
+      if (this.currentLyric.lines) {
+        this.currentLyric.stop()
+        this.currentTime = 0
+        this.currentLineNum = 0
+      }
       this.createAudio()
-      // clearTimeout(this.timer)
-      // this.timer = setTimeout(() => {
-      //   this.createAudio()
-      // }, 1000)
     },
     currentTime (newTime, oldTime) {
       if (newTime === this.currentSong.duration) {
@@ -267,7 +309,7 @@ export default {
       }
     }
   },
-  created () {
+  onLoad () {
     innerAudioContext.onPlay(() => {
       console.log('开始播放')
     })
@@ -283,6 +325,9 @@ export default {
     //     this.next()
     //   }
     // })
+  },
+  mounted () {
+    this.getLyrics()
   }
   // onUnload () {
   //   this.setFullScreen(false)
@@ -339,23 +384,23 @@ export default {
 		.middle {
 			position: fixed;
 			width: 100%;
+			height: auto;
 			top: 80px;
 			bottom: 170px;
-			white-space: nowrap;
-			font-size: 0;
 			&-l {
 				display: inline-block;
 				vertical-align: top;
 				position: relative;
 				width: 100%;
-				height: 0;
+				// height: 300px;
 				padding-top: 80%;
+				// transform: translateZ(0px);
 				.cd-wrapper {
 					position: absolute;
 					left: 10%;
 					top: 0;
-					width: 80%;
-					height: 100%;
+					width: 300px;
+					height: 300px;
 					.cd {
 						width: 100%;
 						height: 100%;
@@ -380,6 +425,28 @@ export default {
 							box-sizing: border-box;
 							transform: rotate(0deg);
 							border-radius: 50%;
+						}
+					}
+				}
+			}
+			&-r {
+				display: inline-block;
+				vertical-align: top;
+				width: 100%;
+				height: 100%;
+				overflow: scroll;
+				.lyric-wrapper {
+					width: 80%;
+					height: 350px;
+					margin: 0 auto;
+					overflow: scroll;
+					text-align: center;
+					.text {
+						line-height: 32px;
+						color: rgba(255, 255, 255, 0.5);
+						font-size: 14px;
+						&.current {
+							color: #ffffff;
 						}
 					}
 				}

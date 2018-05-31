@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "flyio": "^0.5.7",
+    "js-base64": "^2.4.5",
+    "lyric-parser": "^1.0.1",
     "mpvue": "^1.0.8",
     "vuex": "^2.3.1"
   },
