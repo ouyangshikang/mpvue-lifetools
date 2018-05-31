@@ -108,10 +108,6 @@ export default {
     console.log(options)
     this.movieId = options.id
     this.getMovieInfo(this.movieId)
-  },
-  onUnload () {
-    this.movie = {}
-    this.movieId = 0
   }
 }
 </script>
