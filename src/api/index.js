@@ -39,6 +39,62 @@ const api = {
       format: 'json'
     })
     return http.get(url, data)
+  },
+  /**
+   * 获取歌手数据
+   */
+  getSingerList () {
+    const url = 'https://c.y.qq.com/v8/fcg-bin/v8.fcg'
+
+    const data = Object.assign({}, commonParams, {
+      rnd: Math.random(),
+      channel: 'singer',
+      page: 'list',
+      key: 'all_all_all',
+      pagesize: 100,
+      pagenum: 1,
+      hostUin: 0,
+      needNewCode: 0,
+      platform: 'yqq',
+      format: 'json'
+    })
+    return http.get(url, data)
+  },
+  /**
+   * 获取歌手详情数据
+   */
+  getSingerDetail (singerId) {
+    const url = 'https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg'
+
+    const data = Object.assign({}, commonParams, {
+      hostUin: 0,
+      needNewCode: 0,
+      platform: 'yqq',
+      order: 'listen',
+      begin: 0,
+      num: 80,
+      songstatus: 1,
+      singermid: singerId,
+      format: 'json'
+    })
+
+    return http.get(url, data)
+  },
+  /**
+   * 获取歌曲的歌词
+   */
+  getLyric (mid) {
+    const url = 'http://ustbhuangyi.com/music/api/lyric'
+    const data = Object.assign({}, commonParams, {
+      songmid: mid,
+      platform: 'yqq',
+      hostUin: 0,
+      needNewCode: 0,
+      categoryId: 10000000,
+      pcachetime: +new Date(),
+      format: 'json'
+    })
+    return http.get(url, data)
   }
 }
 

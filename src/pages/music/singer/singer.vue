@@ -1,10 +1,14 @@
 <template>
 	<div>
-        歌手页面
+    <singer-list></singer-list>
+    <!-- <player></player> -->
 	</div>
 </template>
 
 <script>
+import SingerList from 'components/music/singer/singer-list'
+import player from 'components/music/player/player'
+
 export default {
   data () {
     return {
@@ -13,6 +17,10 @@ export default {
   },
   methods: {
 
+  },
+  components: {
+    SingerList,
+    player
   }
 }
 </script>

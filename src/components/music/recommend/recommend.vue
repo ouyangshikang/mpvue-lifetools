@@ -20,7 +20,6 @@
 <script>
 import api from '@/api/index'
 import {ERR_OK} from '@/api/config'
-import Loading from 'components/music/loading/loading'
 export default {
   data () {
     return {
@@ -34,7 +33,7 @@ export default {
       })
       api.getDiscList().then(res => {
         if (res.data.code === ERR_OK) {
-          console.log(res.data.data.list)
+          // console.log(res.data.data.list)
           this.discList = res.data.data.list
           wx.hideLoading()
         }
@@ -43,9 +42,6 @@ export default {
         console.log(error)
       })
     }
-  },
-  components: {
-    Loading
   },
   created () {
     this.getDiscList()
@@ -69,11 +65,15 @@ export default {
 			letter-spacing: 3px;
 		}
 		ul {
+			padding-bottom: 60px;
 			.item {
 				display: flex;
 				box-sizing: border-box;
 				align-items: center;
-				padding: 0 20px 20px 20px;
+				padding: 10px 20px 10px 20px;
+				&:active {
+					background: rgba(204, 204, 204, 0.6);
+				}
 				.icon > img {
 					flex: 0 0 60px;
 					width: 60px;
@@ -94,7 +94,7 @@ export default {
 							color: #000000;
 					}
 					.desc{
-							color: rgba(1, 28, 56, 0.53);
+							color: rgba(0, 0, 0, 0.5);
 					}
 				}
 			}

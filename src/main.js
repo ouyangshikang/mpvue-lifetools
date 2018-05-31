@@ -24,7 +24,9 @@ export default {
       'pages/map/main',
       'pages/music/singer/main',
       'pages/music/music-ranking/main',
-      'pages/music/music-recommend/main'
+      'pages/music/music-recommend/main',
+      'pages/music/singer-detail/main',
+      'pages/music/player/main'
     ],
     window: {
       backgroundTextStyle: 'light',

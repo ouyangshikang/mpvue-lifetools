@@ -47,7 +47,8 @@
 			<swiper-item class="swiper-item">  
 				<div>发现</div>  
 			</swiper-item>  
-		</swiper>  
+		</swiper>
+		<player></player>
   </div>
 </template>
 
@@ -55,6 +56,7 @@
 import slider from 'components/music/slider/slider'
 import type from 'components/music/slider/type'
 import recommend from 'components/music/recommend/recommend'
+import player from 'components/music/player/player'
 export default {
   data () {
     return {
@@ -74,7 +76,8 @@ export default {
   components: {
     slider,
     type,
-    recommend
+    recommend,
+    player
   }
 }
 </script>

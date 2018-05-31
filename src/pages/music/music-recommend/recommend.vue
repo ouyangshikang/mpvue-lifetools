@@ -1,11 +1,13 @@
 <template>
 	<div>
     <recommend></recommend>
+    <!-- <player></player> -->
 	</div>
 </template>
 
 <script>
 import recommend from 'components/music/recommend/recommend'
+import player from 'components/music/player/player'
 export default {
   data () {
     return {
@@ -16,7 +18,8 @@ export default {
 
   },
   components: {
-    recommend
+    recommend,
+    player
   }
 }
 </script>
