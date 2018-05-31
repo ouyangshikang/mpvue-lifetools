@@ -95,6 +95,57 @@ const api = {
       format: 'json'
     })
     return http.get(url, data)
+  },
+  /**
+   * 获取歌单的歌曲列表
+   */
+  getDiscSongList (disstid) {
+    const url = 'http://ustbhuangyi.com/music/api/getCdInfo'
+    const data = Object.assign({}, commonParams, {
+      disstid,
+      type: 1,
+      json: 1,
+      utf8: 1,
+      onlysong: 0,
+      platform: 'yqq',
+      hostUin: 0,
+      needNewCode: 0,
+      format: 'json'
+    })
+    return http.get(url, data)
+  },
+  /**
+   * 获取排行榜的歌曲数据
+   */
+  getTopList () {
+    const url = 'https://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg'
+
+    const data = Object.assign({}, commonParams, {
+      uin: 0,
+      needNewCode: 1,
+      platform: 'h5',
+      format: 'json'
+    })
+    return http.get(url, data)
+  },
+  /**
+   * 获取排行榜具体数据
+   */
+  getTopListDetail (topid) {
+    const url = 'https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg'
+
+    const data = Object.assign({}, commonParams, {
+      topid,
+      needNewCode: 1,
+      uin: 0,
+      tpl: 3,
+      page: 'detail',
+      type: 'top',
+      platform: 'h5',
+      format: 'json'
+    })
+
+    return http.get(url, data)
   }
 }
 

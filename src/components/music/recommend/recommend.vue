@@ -20,6 +20,7 @@
 <script>
 import api from '@/api/index'
 import {ERR_OK} from '@/api/config'
+import {mapMutations} from 'vuex'
 export default {
   data () {
     return {
@@ -27,6 +28,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      setDisc: 'SET_DISC'
+    }),
     getDiscList () {
       wx.showLoading({
         title: '正在加载...'
@@ -41,6 +45,13 @@ export default {
         wx.hideLoading()
         console.log(error)
       })
+    },
+    selectItem (item) {
+      // console.log('歌单数据', item)
+      wx.navigateTo({
+        url: `/pages/music/recommend-detail/main?id=${item.dissid}`
+      })
+      this.setDisc(item)
     }
   },
   created () {

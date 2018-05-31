@@ -7,6 +7,6 @@ app.$mount()
 export default {
     // 这个字段走 app.json
   config: {
-    navigationBarTitleText: '音乐排行榜'
+    navigationBarTitleText: 'QQ音乐巅峰榜'
   }
 }

@@ -24,6 +24,13 @@ export default {
   // 当前播放的音乐
   currentSong: state => {
     return state.playList[state.currentIndex] || {}
+  },
+  // 歌单数据
+  disc: state => {
+    return state.disc
+  },
+  // 排行榜数据
+  topList: state => {
+    return state.topList
   }
-
 }

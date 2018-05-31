@@ -26,7 +26,10 @@ export default {
       'pages/music/music-ranking/main',
       'pages/music/music-recommend/main',
       'pages/music/singer-detail/main',
-      'pages/music/player/main'
+      'pages/music/player/main',
+      'pages/music/recommend-detail/main',
+      'pages/music/rank-detail/main'
+
     ],
     window: {
       backgroundTextStyle: 'light',

@@ -5,7 +5,9 @@ import {
   SET_PLAYLIST,
   SET_SEQUENCE_LIST,
   SET_PLAY_MODE,
-  SET_CURRENT_INDEX
+  SET_CURRENT_INDEX,
+  SET_DISC,
+  SET_TOP_LIST
 } from './mutation-types.js'
 
 const mutations = {
@@ -31,7 +33,12 @@ const mutations = {
   },
   [SET_CURRENT_INDEX] (state, index) {
     state.currentIndex = index
+  },
+  [SET_DISC] (state, disc) {
+    state.disc = disc
+  },
+  [SET_TOP_LIST] (state, topList) {
+    state.topList = topList
   }
-
 }
 export default mutations
