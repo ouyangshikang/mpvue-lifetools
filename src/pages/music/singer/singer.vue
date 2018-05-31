@@ -1,7 +1,7 @@
 <template>
 	<div>
     <singer-list></singer-list>
-    <!-- <player></player> -->
+    <player></player>
 	</div>
 </template>
 

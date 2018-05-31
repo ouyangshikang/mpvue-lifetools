@@ -1,7 +1,7 @@
 <template>
 	<div>
     <recommend></recommend>
-    <!-- <player></player> -->
+    <player></player>
 	</div>
 </template>
 

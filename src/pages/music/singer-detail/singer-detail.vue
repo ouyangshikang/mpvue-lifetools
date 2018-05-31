@@ -1,7 +1,7 @@
 <template>
 	<div class="singer-detail">
 		<music-list :bgImage="bgImage" :songList="songList"></music-list>
-		<!-- <player></player> -->
+		<player></player>
 	</div>
 </template>
 

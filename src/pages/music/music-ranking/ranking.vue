@@ -1,7 +1,7 @@
 <template>
 	<div>
     音乐排行页面
-    <!-- <player></player> -->
+    <player></player>
 	</div>
 </template>
 
