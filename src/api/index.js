@@ -146,6 +146,22 @@ const api = {
     })
 
     return http.get(url, data)
+  },
+
+  // 电影
+  getMovieData (url, callback) {
+    wx.request({
+      url: url,
+      data: {},
+      method: 'GET',
+      header: {
+        'content-type': 'json'
+      },
+      success (res) {
+        callback(res)
+      },
+      fail () {}
+    })
   }
 }
 

@@ -18,6 +18,8 @@ export default {
       '^pages/index/main',
       'pages/music/index/main',
       'pages/movie/main',
+      'pages/movie/more-movie/main',
+      'pages/movie/detail-movie/main',
       'pages/weather/main',
       'pages/news/main',
       'pages/github/main',
