@@ -95,18 +95,19 @@ export default {
               that.infos[index] = {}
             }
             // this.infos[index][item.replace(/s$/, '')] = val
+            console.log(result[item])
             that.$nextTick(() => {
-              // this.$set(this.infos[index], item.replace(/s$/, ''), val)
+              // that.$set(that.infos, index, val)
               that.infos[index][item.replace(/s$/, '')] = val
             })
-            wx.hideLoading()
           })
         })
+        wx.hideLoading()
       })
       console.log('infos', this.infos)
     }
   },
-  created () {
+  mounted () {
     this.getGithubRanking('HTML')
   }
 }
@@ -124,8 +125,8 @@ export default {
     text-align: center;  
 		line-height: 40px;
 		&-list {
-			font-size: 14px;  
-			display: inline-block;  
+			font-size: 14px;
+			display: inline-block;
 			width: 33.33%;  
 			color: #e9e9e9;
 			&.on {

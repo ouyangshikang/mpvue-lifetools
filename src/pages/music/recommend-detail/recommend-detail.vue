@@ -9,7 +9,8 @@
 import {mapGetters} from 'vuex'
 import api from '@/api/index'
 import {ERR_OK} from '@/api/config'
-import {createSong} from '@/common/js/song'
+// import {createSong} from '@/common/js/song'
+import {createSong} from '../../../utils/song'
 import MusicList from 'components/music/singer/music-list'
 import player from 'components/music/player/player'
 
