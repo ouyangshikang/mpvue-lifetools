@@ -162,6 +162,11 @@ const api = {
       },
       fail () {}
     })
+  },
+  // github ranking
+  getGithubRanking (lang) {
+    const url = `https://microzz.com:3000/api/github-ranking/${lang}/stars`
+    return http.get(url)
   }
 }
 
