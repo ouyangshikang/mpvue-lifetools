@@ -37,7 +37,7 @@ export default {
   methods: {
     movieTap (event) {
       let movieId = event.currentTarget.dataset.movieid
-      console.log(movieId)
+      // console.log(movieId)
       wx.navigateTo({
         url: '/pages/movie/detail-movie/main?id=' + movieId
       })

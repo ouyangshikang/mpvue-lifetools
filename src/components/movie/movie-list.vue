@@ -55,14 +55,14 @@ export default {
 
     movieTap (event) {
       let movieId = event.currentTarget.dataset.movieid
-      console.log(movieId)
+      // console.log(movieId)
       wx.navigateTo({
         url: '/pages/movie/detail-movie/main?id=' + movieId
       })
     }
   },
   mounted () {
-    console.log('传过来', this.movieData)
+    // console.log('传过来', this.movieData)
   }
 }
 </script>

@@ -91,7 +91,7 @@ export default {
     getMovieInfo (mid) {
       const url = 'https://douban.uieee.com' + '/v2/movie/subject/' + mid
       let movie = new Movie(url)
-      console.log('zuihou', movie)
+      // console.log('zuihou', movie)
       movie.getMovieData((movie) => {
         this.movie = movie
       })
@@ -105,7 +105,7 @@ export default {
     }
   },
   onLoad (options) {
-    console.log(options)
+    // console.log(options)
     this.movieId = options.id
     this.getMovieInfo(this.movieId)
   }

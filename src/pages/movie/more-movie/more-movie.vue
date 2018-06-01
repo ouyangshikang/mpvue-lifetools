@@ -79,7 +79,7 @@ export default {
       // })
       this.movies = totalMovies
       this.totalCount += 20
-      console.log(this.movies)
+      // console.log(this.movies)
       wx.hideNavigationBarLoading()
       wx.stopPullDownRefresh()
     }

@@ -61,15 +61,15 @@ export default {
       let top250Url = url + '/v2/movie/top250' + '?start=0&count=3'
       api.getMovieData(inTheatersUrl, (res) => {
         this.inTheater = this.processDoubanData(res.data, 'inTheater', '正在热映')
-        console.log(this.inTheater)
+        // console.log(this.inTheater)
       })
       api.getMovieData(comingSoonUrl, (res) => {
         this.comingSoon = this.processDoubanData(res.data, 'comingSoon', '即将上映')
-        console.log(this.comingSoon)
+        // console.log(this.comingSoon)
       })
       api.getMovieData(top250Url, (res) => {
         this.top250 = this.processDoubanData(res.data, 'top250', '豆瓣Top250')
-        console.log(this.top250)
+        // console.log(this.top250)
       })
     },
     processDoubanData (data, settedKey, categoryTitle) {
@@ -105,14 +105,14 @@ export default {
     },
     bindConfirm (event) {
       let text = event.mp.detail.value
-      console.log(text)
+      // console.log(text)
       let searchUrl = 'https://douban.uieee.com/v2/movie/search?q=' + text
       this.initValue = text
       // this.getMovieListData(searchUrl, 'searchResult', '')
       wx.showNavigationBarLoading()
       api.getMovieData(searchUrl, (res) => {
         this.searchResult = this.processDoubanData(res.data, 'searchResult', '')
-        console.log('搜索结果是', this.searchResult)
+        // console.log('搜索结果是', this.searchResult)
         wx.hideNavigationBarLoading()
       })
     },
