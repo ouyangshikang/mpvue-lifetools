@@ -17,14 +17,14 @@
 <script>
 import weather from 'components/weather'
 import card from 'components/card'
-import api from '@/api/weather.js'
+import api from '@/api/index.js'
 
 export default {
   data () {
     return {
       toolList: [{
         name: '小猿音乐',
-        url: '/pages/music/main',
+        url: '/pages/music/index/main',
         iconClass: 'icon-yinle'
       }, {
         name: '小猿电影',
@@ -34,19 +34,23 @@ export default {
         name: '天气预报',
         url: '/pages/weather/main',
         iconClass: 'icon-tianqi'
-      }, {
-        name: '知乎资讯',
-        url: '/pages/news/main',
-        iconClass: 'icon-zhihu'
-      }, {
+      },
+      // {
+      //   name: '知乎资讯',
+      //   url: '/pages/news/main',
+      //   iconClass: 'icon-zhihu'
+      // },
+      {
         name: 'github ranking',
         url: '/pages/github/main',
         iconClass: 'icon-github'
-      }, {
-        name: '地图服务',
-        url: '/pages/map/main',
-        iconClass: 'icon-ditu'
-      }],
+      }
+      // {
+      //   name: '地图服务',
+      //   url: '/pages/map/main',
+      //   iconClass: 'icon-ditu'
+      // }
+      ],
       weathers: {}
     }
   },

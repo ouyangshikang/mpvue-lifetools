@@ -53,6 +53,7 @@ export default {
       width: 115px;
       height: 100px;
       display: inline-block;
+      float: left;
       // justify-content: center;
       // align-items: center;
       i {

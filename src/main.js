@@ -16,12 +16,22 @@ export default {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
     pages: [
       '^pages/index/main',
-      'pages/music/main',
+      'pages/music/index/main',
       'pages/movie/main',
+      'pages/movie/more-movie/main',
+      'pages/movie/detail-movie/main',
       'pages/weather/main',
       'pages/news/main',
       'pages/github/main',
-      'pages/map/main'
+      'pages/map/main',
+      'pages/music/singer/main',
+      'pages/music/music-ranking/main',
+      'pages/music/music-recommend/main',
+      'pages/music/singer-detail/main',
+      'pages/music/player/main',
+      'pages/music/recommend-detail/main',
+      'pages/music/rank-detail/main'
+
     ],
     window: {
       backgroundTextStyle: 'light',

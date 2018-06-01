@@ -33,20 +33,30 @@
 			duration="400"
 			@change="bindChange"
 		>  
-			<swiper-item>  
+			<swiper-item class="swiper-item">  
 				<div>我的</div>  
 			</swiper-item>  
-			<swiper-item>  
-				<div>音乐馆</div>  
+			<swiper-item class="swiper-item">  
+				<!-- 轮播图 -->
+				<slider></slider>
+				<!-- 分类导航栏 -->
+				<type></type>
+				<!-- 推荐歌单列表 -->
+				<recommend></recommend>
 			</swiper-item>  
-			<swiper-item>  
+			<swiper-item class="swiper-item">  
 				<div>发现</div>  
 			</swiper-item>  
-		</swiper>  
+		</swiper>
+		<player></player>
   </div>
 </template>
 
 <script>
+import slider from 'components/music/slider/slider'
+import type from 'components/music/slider/type'
+import recommend from 'components/music/recommend/recommend'
+import player from 'components/music/player/player'
 export default {
   data () {
     return {
@@ -62,6 +72,12 @@ export default {
       // console.log('点击tab', e)
       this.currentTab = e.target.dataset.current
     }
+  },
+  components: {
+    slider,
+    type,
+    recommend,
+    player
   }
 }
 </script>
@@ -94,9 +110,11 @@ export default {
 	}  
 	.swiper-box {
 		display: block;
-		width: 100%; 
-		overflow: hidden;
-		& > div {
+		width: 100%;
+		height: calc(100vh - 47px);
+		.swiper-item {
+			overflow-x: hidden;
+			overflow-y: scroll;
 			text-align: center;
 			color: #000000;
 		}
