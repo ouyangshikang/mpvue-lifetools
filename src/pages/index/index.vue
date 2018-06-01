@@ -34,19 +34,23 @@ export default {
         name: '天气预报',
         url: '/pages/weather/main',
         iconClass: 'icon-tianqi'
-      }, {
-        name: '知乎资讯',
-        url: '/pages/news/main',
-        iconClass: 'icon-zhihu'
-      }, {
+      },
+      // {
+      //   name: '知乎资讯',
+      //   url: '/pages/news/main',
+      //   iconClass: 'icon-zhihu'
+      // },
+      {
         name: 'github ranking',
         url: '/pages/github/main',
         iconClass: 'icon-github'
-      }, {
-        name: '地图服务',
-        url: '/pages/map/main',
-        iconClass: 'icon-ditu'
-      }],
+      }
+      // {
+      //   name: '地图服务',
+      //   url: '/pages/map/main',
+      //   iconClass: 'icon-ditu'
+      // }
+      ],
       weathers: {}
     }
   },
