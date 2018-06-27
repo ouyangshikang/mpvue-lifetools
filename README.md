@@ -20,7 +20,7 @@ npm run dev
 ```
 ## 效果图
 #### 首页
-<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142512@2x.png" width="337" height="600"/>
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142512@2x.png" width="337" height="600" border="1px solid #e4e4e4"/>
 
 <!-- ![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142512@2x.png) -->
 
