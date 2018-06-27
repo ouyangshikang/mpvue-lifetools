@@ -107,7 +107,7 @@ export default {
       console.log('infos', this.infos)
     }
   },
-  mounted () {
+  created () {
     this.getGithubRanking('HTML')
   }
 }

@@ -31,7 +31,7 @@ export default {
         url: '/pages/movie/main',
         iconClass: 'icon-dianying'
       }, {
-        name: '天气预报',
+        name: '小猿天气',
         url: '/pages/weather/main',
         iconClass: 'icon-tianqi'
       },
