@@ -20,27 +20,17 @@ npm run dev
 ```
 ## 效果图
 #### 首页
-<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142512@2x.png" width="337" height="600" style="border:1px solid #e4e4e4;"/>
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142512@2x.png" width="337" height="590"/>
 
-<!-- ![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142512@2x.png) -->
 
 #### 小猿音乐
-<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142917@2x.png" width="337" height="600" style="border:1px solid #e4e4e4;"/>
-<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143000@2x.png" width="337" height="600" style="border:1px solid #e4e4e4;"/>
-<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143024@2x.png" width="337" height="600" style="border:1px solid #e4e4e4;"/>
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142917@2x.png" width="337" height="590"/>
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143000@2x.png" width="337" height="590"/>
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143024@2x.png" width="337" height="590"/>
 
-<!-- ![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142917@2x.png)
-
-![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143000@2x.png)
-
-![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143024@2x.png) -->
 
 #### 小猿电影
-<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143102@2x.png" width="337" height="600" style="border:1px solid #e4e4e4;"/>
-
-<!-- ![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143102@2x.png) -->
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143102@2x.png" width="337" height="590"/>
 
 #### github ranking
-<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143148@2x.png" width="337" height="600" style="border:1px solid #e4e4e4;"/>
-
-<!-- ![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143148@2x.png) -->
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143148@2x.png" width="337" height="590"/>
