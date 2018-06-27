@@ -6,7 +6,7 @@
 - 数据请求: [flyio.js](https://wendux.github.io/dist/#/doc/flyio/readme)-支持js环境下各端的数据请求
 - css预编译器: scss
 - 框架: mpvue
-- 数据: 1. 天气数据-[和风天气api](http://www.heweather.com/documents/api/s6); 2.音乐数据-qq音乐爬取; 3. 电影数据: 豆瓣电影api 4.GitHub-Ranking 
+- 数据: 1. 天气数据-[和风天气api](http://www.heweather.com/documents/api/s6); 2.音乐数据-qq音乐爬取; 3. 电影数据: 豆瓣电影api 4.GitHub-Ranking 
 
 ## 安装启动
 
@@ -20,17 +20,17 @@ npm run dev
 ```
 ## 效果图
 #### 首页
-![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142512@2x.png)
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142512@2x.png" width="337" height="590"/>
+
 
 #### 小猿音乐
-![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142917@2x.png)
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-142917@2x.png" width="337" height="590"/>
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143000@2x.png" width="337" height="590"/>
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143024@2x.png" width="337" height="590"/>
 
-![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143000@2x.png)
-
-![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143024@2x.png)
 
 #### 小猿电影
-![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143102@2x.png)
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143102@2x.png" width="337" height="590"/>
 
 #### github ranking
-![](http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143148@2x.png)
+<img src="http://ovc5dgvpb.bkt.clouddn.com/WX20180627-143148@2x.png" width="337" height="590"/>
