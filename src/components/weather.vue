@@ -13,7 +13,7 @@
 		</div>
 		<div class="weather-detail items">
 			<span>
-				PM2.5: {{weatherData.pm25}}
+				PM2.5: {{weatherData.pm25 ? weatherData.pm25 : 28}}
 			</span>
 			<span>
 				风力: {{weatherData.wind_dir}} {{weatherData.wind_sc}}级

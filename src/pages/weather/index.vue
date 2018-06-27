@@ -5,15 +5,15 @@
       </div>
       <div class="weather-keyword">
         <div class="weather-keyword__status">阴</div>
-        <div class="weather-keyword__temperature">20°</div>
+        <div class="weather-keyword__temperature">23°</div>
         <div class="weather-keyword__desc">
           <span>
             <i></i>
-            东北风2级
+            东风3-4级
           </span>
           <span>
             <i></i>
-            46 优
+            28 优
           </span>
         </div>
       </div>

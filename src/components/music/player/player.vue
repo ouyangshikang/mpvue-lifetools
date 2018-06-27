@@ -1,14 +1,18 @@
 <template>
 	<div class="player"  v-if="playList.length > 0">
+		<!-- 大播放器 -->
 		<div class="normal-player" v-if="fullScreen">
 			<div class="background">
 				<img :src="currentSong.image">
 			</div>
+
 			<!-- 顶部区域 -->
 			<div class="top">
 				<h1 class="title">{{currentSong.name}}</h1>
 				<h2 class="subtitle">{{currentSong.singer}}</h2>
 			</div>
+			<!-- 顶部区域 -->
+
 			<!-- 中间滚动区域 -->
 			<swiper
 				indicator-dots="true"
@@ -41,13 +45,10 @@
 					</scroll-view>
 				</swiper-item>
   		</swiper>
-			
-			<!-- 顶部操作区域 -->
+			<!-- 中间滚动区域 -->
+
+			<!-- 底部操作区域 -->
 			<div class="bottom">
-				<!-- <div class="dot-wrapper">
-					<span class="dot" :class="{'active':currentShow==='cd'}"></span>
-					<span class="dot" :class="{'active':currentShow==='lyric'}"></span>
-				</div> -->
 				<!-- 歌曲进度条 -->
 				<div class="progress-wrapper">
 					<span class="time time-l">{{curTime}}</span>
@@ -98,8 +99,12 @@
 				</div>
 				<!-- 歌曲操作 -->
 			</div>
-		</div>
+			<!-- 底部操作区域 -->
 
+		</div>
+		<!-- 大播放器 -->
+
+		<!-- 底部迷你播放器 -->
 		<div class="mini-player" v-if="!fullScreen" @click="openFullScreen">
 			<div class="icon">
 				<img :src="currentSong.image">
@@ -119,7 +124,7 @@
 				<i class="iconfont icon-liebiao"></i>
 			</div>
 		</div>
-		<audio :src="currentSong.url" ></audio>
+		<!-- 底部迷你播放器 -->
 	</div>
 </template>
 
@@ -329,10 +334,6 @@ export default {
   mounted () {
     this.getLyrics()
   }
-  // onUnload () {
-  //   this.setFullScreen(false)
-  //   // this.innerAudioContext.destroy()
-  // }
 }
 </script>
 

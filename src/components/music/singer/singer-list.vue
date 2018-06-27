@@ -7,7 +7,8 @@
 <script>
 import api from '@/api/index'
 import {ERR_OK} from '@/api/config'
-import Singer from '@/common/js/singer'
+// import Singer from '@/common/js/singer'
+import Singer from '../../../utils/singer'
 import listview from './listview'
 import {mapMutations} from 'vuex'
 
