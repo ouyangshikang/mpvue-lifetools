@@ -10,18 +10,18 @@ http.interceptors.request.use((request) => {
 })
 
 http.interceptors.response.use(
-    (response, promise) => {
-      wx.hideNavigationBarLoading()
-      return promise.resolve(response)
-    },
-    (err, promise) => {
-      wx.hideNavigationBarLoading()
-      wx.showToast({
-        title: err.message,
-        icon: 'none'
-      })
-      return promise.resolve()
-    }
-  )
+  (response, promise) => {
+    wx.hideNavigationBarLoading()
+    return promise.resolve(response)
+  },
+  (err, promise) => {
+    wx.hideNavigationBarLoading()
+    wx.showToast({
+      title: err.message,
+      icon: 'none'
+    })
+    return promise.resolve()
+  }
+)
 
 export default http
