@@ -8,6 +8,7 @@
 		"newFeature": true
 	},
 	"miniprogramRoot": "./dist/",
+	"qcloudRoot": "./server",
 	"compileType": "miniprogram",
 	"appid": "wx82b65ea326ff780c",
 	"projectname": "mpvue-lifetools",

@@ -1,5 +1,5 @@
 <template>
-	<div class="player"  v-if="playList.length > 0">
+	<div class="player" v-if="playList.length > 0">
 		<!-- 大播放器 -->
 		<div class="normal-player" v-if="fullScreen">
 			<div class="background">
@@ -19,7 +19,7 @@
 				indicator-color="rgba(255, 255, 255, 0.5)"
 				indicator-active-color="#ffffff"
 				class="middle"
-			> 
+			>
 			  <!-- 唱片区域 -->
 				<swiper-item class="middle-l">
 					<div class="cd-wrapper">
@@ -167,7 +167,7 @@ export default {
     getLyrics () {
       var that = this
       this.currentSong.getLyric().then(res => {
-// console.log('歌词', res)
+        // console.log('歌词', res)
         // const lys = new Lyric(res)
         that.currentLyric = new Lyric(res, that.handleLyric)
         if (that.playing) {
@@ -412,7 +412,7 @@ export default {
 						overflow: hidden;
 						&.play {
 							animation: rotate 20s linear infinite;
-						}   
+						}
             &.pause {
 							animation: rotate 20s linear infinite;
 							animation-play-state: paused;
